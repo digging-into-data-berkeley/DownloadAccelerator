@@ -169,3 +169,32 @@ Downloaded: 34 files, 319M in 5m 3s (1.05 MB/s)
 
 =========> Downloaded in : 339.129284 s
 </pre>
+
+## SALT Server disk output
+<code>
+    -bash-4.1$ df -h
+</code>
+
+    Filesystem            Size  Used Avail Use% Mounted on
+    /dev/mapper/vg01-root
+                           79G  3.1G   72G   5% /
+    tmpfs                  24G     0   24G   0% /dev/shm
+    /dev/mapper/vg01-salt
+                          353G  200G  135G  60% /SALT/salt_local
+    /dev/sda1             504M   38M  441M   8% /boot
+    /dev/mapper/vg01-tmp 1008M   61M  897M   7% /tmp
+    /dev/mapper/vg01-var  4.0G  324M  3.5G   9% /var
+    /dev/mapper/vg01-varlib
+                          7.9G  305M  7.2G   4% /var/lib
+    /dev/mapper/vg01-varlog
+                           12G  205M   12G   2% /var/log
+    dock2-kure:/vol/sata1/home
+                           35T  7.9T   27T  23% /nas02/home
+    rc-gridscaler-i.its.unc.edu:/gs1/nfsexport/
+                           42T   31T   12T  73% /netscr
+    dock2-kure:/vol/sata1/apps
+                           35T  7.9T   27T  23% /nas02/apps
+    dock2-kure:/vol/sata1/data
+                           35T  7.9T   27T  23% /nas02/data
+    dock2-kure:/vol/sata2/salt
+                           50G     0   50G   0% /SALT/salt_vol
