@@ -161,14 +161,12 @@ Back in Python
 </pre>
 
 ## `WGET` statistics
-<pre>
-FINISHED --2013-07-08 00:22:13--
-Total wall clock time: 5m 39s
-Downloaded: 34 files, 319M in 5m 3s (1.05 MB/s)
 
+    FINISHED --2013-07-08 00:22:13--
+    Total wall clock time: 5m 39s
+    Downloaded: 34 files, 319M in 5m 3s (1.05 MB/s)
+    =========> Downloaded in : 339.129284 s
 
-=========> Downloaded in : 339.129284 s
-</pre>
 
 ## SALT Server disk output
 <code>
@@ -198,3 +196,56 @@ Downloaded: 34 files, 319M in 5m 3s (1.05 MB/s)
                            35T  7.9T   27T  23% /nas02/data
     dock2-kure:/vol/sata2/salt
                            50G     0   50G   0% /SALT/salt_vol
+
+## Book Size Statistics
+<code>
+    $ python filestats.py --dir="downloads/aria2/" --type="xml"
+</code>
+
+    beitrgezurwirth00krgoog_djvu.xml       9319262
+    benjaminnoldman00kniggoog_djvu.xml     3151855
+    bulletin01queegoog_djvu.xml           21216689
+    bulletin16fragoog_djvu.xml             9601477
+    bulletin16musegoog_djvu.xml           17590040
+    bulletin41minegoog_djvu.xml           21130705
+    bulletindelasoc03limogoog_djvu.xml    12957926
+    cfgellertssmmtl01heyegoog_djvu.xml     3760495
+    choixderapports00lallgoog_djvu.xml    11022941
+    christoforusblt00freygoog_djvu.xml     8300111
+    goethesgedichee01viehgoog_djvu.xml     5652880
+    populationschedu533unit_djvu.xml            89
+    railroadsfinanc03riplgoog_djvu.xml    12469989
+    reportsallcases01casegoog_djvu.xml    34926467
+    reportsunitedst06kniggoog_djvu.xml    12181795
+    samgyongsasotaej49asam_djvu.xml             89
+    samgyongsasotaej50asam_djvu.xml             89
+    samladearbeten06blangoog_djvu.xml      6031871
+    sammlungderneue01salogoog_djvu.xml     8946053
+    sborniktovarish00unkngoog_djvu.xml     9305122
+    schillerundgoei05braugoog_djvu.xml     7533035
+    schriftendesver06berlgoog_djvu.xml    13401034
+    sciencesociale00unkngoog_djvu.xml     12207825
+    strafrechtsfael00bauegoog_djvu.xml     7661140
+    strafrechtsfael02bauegoog_djvu.xml     7775676
+    talesmylandlord31scotgoog_djvu.xml     3229349
+    tangsihwauikwon1028800_djvu.xml             89
+    tangsihwauikwon1038800_djvu.xml             89
+    temptation00clifgoog_djvu.xml          6081602
+    textbookselecti00frangoog_djvu.xml     1293375
+    theirpilgrimage00warngoog_djvu.xml     5060260
+    transactionsame76socigoog_djvu.xml    14863998
+    travelsanirishg04moorgoog_djvu.xml     7570734
+    treatypeacewith05relagoog_djvu.xml    39761199
+    _______________________________________________________________________________
+    Description:
+    count          34.000000
+    mean      9823686.764706
+    std       9017573.197743
+    min            89.000000
+    25%       4085436.250000
+    50%       8037893.500000
+    75%      12404448.000000
+    max      39761199.000000
+    _______________________________________________________________________________
+    Median File Size: 8037893.500000
+    Total File Size: 334005350.000000
