@@ -76,7 +76,13 @@ def initDnld(dList, util):
 		cmd = 'aria2c -j10 -idownloads/_downloadlist.txt -x4 --dir=downloads/aria2/'
 
 	elif util == 'curl':
-		cmd = ''
+		# args += ' -O '.join(ditem) for ditem in dList
+		args = ''
+		for dItem in dList:
+			args += ' -O ' + dItem
+		
+		cmd = 'curl' + args
+		print cmd
 
 	elif util == 'wget':
 		# subprocess.call('cd downloads/wget/')
