@@ -16,6 +16,7 @@ from csv import reader
 import subprocess
 from time import time
 import sys
+from os import chdir
 
 
 def getInput():
@@ -64,37 +65,33 @@ def getDnldList(src, format):
 
 
 def initDnld(dList, util):
+	# creating a text file for aria because it can automatically parsing
+	# for urls in a text file and download them
+	fObj = open("downloads/_downloadlist.txt", "w")
+	fObj.writelines("%s\n" % (item) for item in dList)
+	fObj.close()
+
 	if util == 'aria2':
-		# subprocess.call("aria2c" ' '.join)
-		# args = ' '.join(item for item in dList)
-		# subprocess.call(["wget", "-O", args ])
-
-
-		# creating a text file for aria because it can automatically parse
-		# for urls in a text file and download them
-		fObj = open("downloads/aria2/_downloadlist.txt", "w")
-		fObj.writelines("%s\n" % (item) for item in dList)
-		fObj.close()
-
 		#initiate download timestamp
-		cmd = 'aria2c -j5 -idownloads/aria2/_downloadlist.txt -x2 --dir=downloads/aria2'
+		cmd = 'aria2c -j10 -idownloads/_downloadlist.txt -x4 --dir=downloads/aria2/'
 
 	elif util == 'curl':
 		cmd = ''
 
 	elif util == 'wget':
-		cmd = ''
+		# subprocess.call('cd downloads/wget/')
+		cmd = 'wget -i downloads/_downloadlist.txt'
 	else:
 		print "Incorrect Utility Input. Choose [aria2c]/[wget]/[curl]"
 		return
 
 	print "Starting Downloads"
 	t0 = time()
-	# p = subprocess.Popen(["aria2c", "-j5", "-idownloads/aria2/_downloadlist.txt", "-x2", "--dir=downloads/aria2"], stdout=subprocess.PIPE)
+
+	# refer tutorial: http://www.cyberciti.biz/faq/python-execute-unix-linux-command-examples/
 	p = subprocess.Popen(cmd, shell=True, stderr=subprocess.PIPE)
 	while True:
 		out = p.stderr.read(1)
-
 		if out == '' and p.poll is not None:
 			break
 
@@ -102,8 +99,6 @@ def initDnld(dList, util):
 			sys.stdout.write(out)
 			sys.stdout.flush()
 	# output, err = p.communicate()
-
-	# print "**Downloading Complete ** \n", output
 
 	print "\n\n=========> Downloaded in : %f s\n\n" % (time()-t0)
 	print "Back in Python"
