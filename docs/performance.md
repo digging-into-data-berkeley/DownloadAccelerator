@@ -133,6 +133,7 @@ Therefore, __Total Download Size__ becomes:
 
 
 And then, the download time: (via `aria` speeds)
+
     [BEST CASE]
     Estimated time : 33.6 days  i.e. 806.446 hours (for one system)
 
